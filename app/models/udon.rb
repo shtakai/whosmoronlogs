@@ -1,0 +1,2 @@
+class Udon < ApplicationRecord
+end

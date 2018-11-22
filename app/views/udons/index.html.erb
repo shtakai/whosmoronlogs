@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Udons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Kill count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @udons.each do |udon| %>
+      <tr>
+        <td><%= udon.name %></td>
+        <td><%= udon.kill_count %></td>
+        <td><%= link_to 'Show', udon %></td>
+        <td><%= link_to 'Edit', edit_udon_path(udon) %></td>
+        <td><%= link_to 'Destroy', udon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Udon', new_udon_path %>

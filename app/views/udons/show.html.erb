@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @udon.name %>
+</p>
+
+<p>
+  <strong>Kill count:</strong>
+  <%= @udon.kill_count %>
+</p>
+
+<%= link_to 'Edit', edit_udon_path(@udon) %> |
+<%= link_to 'Back', udons_path %>

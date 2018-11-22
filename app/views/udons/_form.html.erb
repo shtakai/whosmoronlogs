@@ -1,0 +1,27 @@
+<%= form_with(model: udon, local: true) do |form| %>
+  <% if udon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(udon.errors.count, "error") %> prohibited this udon from being saved:</h2>
+
+      <ul>
+      <% udon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :udon_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kill_count %>
+    <%= form.number_field :kill_count, id: :udon_kill_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
