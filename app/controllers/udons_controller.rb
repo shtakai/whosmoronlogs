@@ -25,9 +25,9 @@ class UdonsController < ApplicationController
   # POST /udons.json
   def create
     @udon = Udon.new(udon_params)
-
     respond_to do |format|
       if @udon.save
+        UdonJob.perform_now(@udon)
         format.html { redirect_to @udon, notice: 'Udon was successfully created.' }
         format.json { render :show, status: :created, location: @udon }
       else
@@ -42,6 +42,7 @@ class UdonsController < ApplicationController
   def update
     respond_to do |format|
       if @udon.update(udon_params)
+        UdonJob.perform_now(@udon)
         format.html { redirect_to @udon, notice: 'Udon was successfully updated.' }
         format.json { render :show, status: :ok, location: @udon }
       else
